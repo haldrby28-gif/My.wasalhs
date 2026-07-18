@@ -1,1 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.mywasalha.customer"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <application
+        android:label="طلبات فرشوط"
+        android:allowBackup="true"
+        android:supportsRtl="true">
+    </application>
+
+</manifest>
