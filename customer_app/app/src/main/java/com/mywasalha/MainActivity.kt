@@ -42,8 +42,10 @@ class MainActivity : AppCompatActivity() {
 }
 
         orders.setOnClickListener {
-            Toast.makeText(this, "قسم طلباتي", Toast.LENGTH_SHORT).show()
-        }
 
+    val intent = Intent(this, OrdersActivity::class.java)
+    startActivity(intent)
+
+}
     }
 }
