@@ -28,9 +28,11 @@ class MainActivity : AppCompatActivity() {
 
 
         shops.setOnClickListener {
-            Toast.makeText(this, "قسم المحلات", Toast.LENGTH_SHORT).show()
-        }
 
+    val intent = Intent(this, ShopsActivity::class.java)
+    startActivity(intent)
+
+}
 
         pharmacy.setOnClickListener {
             Toast.makeText(this, "قسم الصيدليات", Toast.LENGTH_SHORT).show()
