@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.mywasalha.customer"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mywasalha">
 
     <application
-        android:label="طلبات فرشوط"
         android:allowBackup="true"
-        android:supportsRtl="true">
+        android:label="طلبات فرشوط"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyWasalha">
+
+        <activity
+            android:name=".activities.LoginActivity" />
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
     </application>
 
 </manifest>
