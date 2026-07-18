@@ -1,5 +1,6 @@
 package com.mywasalha
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -19,16 +20,22 @@ class MainActivity : AppCompatActivity() {
 
 
         restaurants.setOnClickListener {
-            Toast.makeText(this, "قسم المطاعم", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, RestaurantsActivity::class.java)
+            startActivity(intent)
+
         }
+
 
         shops.setOnClickListener {
             Toast.makeText(this, "قسم المحلات", Toast.LENGTH_SHORT).show()
         }
 
+
         pharmacy.setOnClickListener {
             Toast.makeText(this, "قسم الصيدليات", Toast.LENGTH_SHORT).show()
         }
+
 
         orders.setOnClickListener {
             Toast.makeText(this, "قسم طلباتي", Toast.LENGTH_SHORT).show()
