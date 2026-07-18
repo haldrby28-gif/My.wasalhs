@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "822921130260",
+    "project_id": "wasalha-app-ee27f",
+    "storage_bucket": "wasalha-app-ee27f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822921130260:android:39ca87679f277f7679d201",
+        "android_client_info": {
+          "package_name": "com.mywasalha"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_fFdzfLTCfIgDruRaJiVqWk_Jc-DnUyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
