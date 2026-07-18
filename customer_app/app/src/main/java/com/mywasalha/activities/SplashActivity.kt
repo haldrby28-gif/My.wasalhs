@@ -3,24 +3,18 @@ package com.mywasalha.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.mywasalha.R
 
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Thread {
-            Thread.sleep(2000)
+        setContentView(R.layout.activity_splash)
 
-            runOnUiThread {
-                startActivity(
-                    Intent(
-                        this@SplashActivity,
-                        LoginActivity::class.java
-                    )
-                )
-                finish()
-            }
-        }.start()
+        window.decorView.postDelayed({
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }, 2000)
     }
 }
