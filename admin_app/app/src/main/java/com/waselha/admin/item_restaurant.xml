@@ -1,0 +1,14 @@
+package com.waselha.admin
+
+data class Restaurant(
+
+    var id: String = "",
+    var restaurantName: String = "",
+    var ownerName: String = "",
+    var phone: String = "",
+    var email: String = "",
+    var city: String = "",
+    var address: String = "",
+    var active: Boolean = true
+
+)
