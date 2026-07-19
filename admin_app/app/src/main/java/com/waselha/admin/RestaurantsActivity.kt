@@ -44,7 +44,7 @@ class RestaurantsActivity : AppCompatActivity() {
 
     private fun loadRestaurants() {
 
-        db.collection("stores")
+        db.collection("restaurants")
             .get()
             .addOnSuccessListener { result ->
 
