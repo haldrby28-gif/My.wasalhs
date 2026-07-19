@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
 }
 
         orders.setOnClickListener {
+    val intent = Intent(this, CartActivity::class.java)
+    startActivity(intent)
+        }
 
     val intent = Intent(this, OrdersActivity::class.java)
     startActivity(intent)
