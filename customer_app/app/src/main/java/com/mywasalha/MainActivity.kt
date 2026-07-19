@@ -1,4 +1,4 @@
-package com.mywasalha
+package com.waselha.customer
 
 import android.content.Intent
 import android.os.Bundle
