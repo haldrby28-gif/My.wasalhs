@@ -28,9 +28,15 @@ class ProductsActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.productsRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        adapter = ProductAdapter(productList) { product ->
-            Toast.makeText(this, "${product.name} تمت إضافته للسلة", Toast.LENGTH_SHORT).show()
-        }
+        import com.mywasalha.utils.CartManager
+
+CartManager.addProduct(product)
+
+Toast.makeText(
+    this,
+    "تمت إضافة ${product.name} إلى السلة",
+    Toast.LENGTH_SHORT
+).show()
 
         recyclerView.adapter = adapter
 
