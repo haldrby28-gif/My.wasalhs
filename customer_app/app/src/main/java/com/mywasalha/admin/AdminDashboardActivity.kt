@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import android.content.Intent
 
 class AdminDashboardActivity : AppCompatActivity() {
 
@@ -25,8 +26,15 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, CustomersActivity::class.java))
         }
 
-        findViewById<Button>(R.id.btnOrders).setOnClickListener {
-            startActivity(Intent(this, OrdersActivity::class.java))
+        findViewById<Button>(R.id.btnRestaurants).setOnClickListener {
+
+    startActivity(
+        Intent(this, AddRestaurantActivity::class.java)
+    )
+
+}
+
+}(Intent(this, OrdersActivity::class.java))
         }
 
         findViewById<Button>(R.id.btnLogout).setOnClickListener {
