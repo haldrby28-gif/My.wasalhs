@@ -13,9 +13,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="إضافة مطعم"
-            android:textSize="24sp"
+            android:text="إضافة مطعم جديد"
             android:textStyle="bold"
+            android:textSize="24sp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"/>
 
@@ -49,6 +49,14 @@
             android:inputType="textEmailAddress"/>
 
         <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="كلمة المرور"
+            android:inputType="textPassword"/>
+
+        <EditText
             android:id="@+id/etCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,8 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="حفظ المطعم"/>
-
+            android:text="إنشاء المطعم"/>
     </LinearLayout>
 
 </ScrollView>
