@@ -9,9 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 class DriverDashboardActivity : AppCompatActivity() {
 
 
-    private lateinit var availableOrdersButton: Button
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -20,22 +17,36 @@ class DriverDashboardActivity : AppCompatActivity() {
 
 
 
-        availableOrdersButton =
-            findViewById(R.id.btnAvailableOrders)
+        val availableOrders =
+            findViewById<Button>(R.id.btnAvailableOrders)
+
+
+        val myOrders =
+            findViewById<Button>(R.id.btnMyOrders)
 
 
 
-        availableOrdersButton.setOnClickListener {
+        availableOrders.setOnClickListener {
 
-
-            val intent =
+            startActivity(
                 Intent(
                     this,
                     AvailableOrdersActivity::class.java
                 )
+            )
+
+        }
 
 
-            startActivity(intent)
+
+        myOrders.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    MyOrdersActivity::class.java
+                )
+            )
 
         }
 
