@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:label="Waselha Partner"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity
+            android:name=".PartnerDashboardActivity" />
+
+        <activity
+            android:name=".LoginActivity" />
+
+        <activity
+            android:name=".AddProductActivity" />
+
+        <activity
+            android:name=".ProductsActivity" />
+
+        <activity
+            android:name=".OrdersActivity" />
+
+        <activity
+            android:name=".OrderDetailsActivity" />
+
+        <activity
+            android:name=".CategoriesActivity" />
+
+        <activity
+            android:name=".AddCategoryActivity" />
+
+        <activity
+            android:name=".RestaurantProfileActivity" />
+
+        <activity
+            android:name=".SettingsActivity" />
+
+        <activity
+            android:name=".SplashActivity">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
