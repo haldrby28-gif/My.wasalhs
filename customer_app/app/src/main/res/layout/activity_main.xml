@@ -1,1 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
 
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+
+    android:padding="20dp">
+
+
+    <TextView
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="وصلها في السريع"
+
+        android:textSize="28sp"
+
+        android:textStyle="bold"
+
+        android:gravity="center"
+
+        android:padding="20dp"/>
+
+
+
+    <Button
+
+        android:id="@+id/btnRestaurants"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="المطاعم"
+
+        android:layout_marginTop="30dp"/>
+
+
+
+    <Button
+
+        android:id="@+id/btnOrders"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="طلباتي"
+
+        android:layout_marginTop="20dp"/>
+
+
+
+    <Button
+
+        android:id="@+id/btnProfile"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="حسابي"
+
+        android:layout_marginTop="20dp"/>
+
+
+</LinearLayout>
