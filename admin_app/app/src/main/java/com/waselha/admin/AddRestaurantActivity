@@ -21,6 +21,7 @@ class AddRestaurantActivity : AppCompatActivity() {
         val etOwnerName = findViewById<EditText>(R.id.etOwnerName)
         val etPhone = findViewById<EditText>(R.id.etPhone)
         val etEmail = findViewById<EditText>(R.id.etEmail)
+        val etPassword = findViewById<EditText>(R.id.etPassword)
         val etCity = findViewById<EditText>(R.id.etCity)
         val etAddress = findViewById<EditText>(R.id.etAddress)
 
@@ -32,6 +33,7 @@ class AddRestaurantActivity : AppCompatActivity() {
             val ownerName = etOwnerName.text.toString().trim()
             val phone = etPhone.text.toString().trim()
             val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
             val city = etCity.text.toString().trim()
             val address = etAddress.text.toString().trim()
 
@@ -59,6 +61,12 @@ class AddRestaurantActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (password.length < 6) {
+                etPassword.error = "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+                etPassword.requestFocus()
+                return@setOnClickListener
+            }
+
             if (city.isEmpty()) {
                 etCity.error = "أدخل المدينة"
                 etCity.requestFocus()
@@ -78,7 +86,9 @@ class AddRestaurantActivity : AppCompatActivity() {
                 "email" to email,
                 "city" to city,
                 "address" to address,
-                "active" to true
+                "active" to true,
+                "uid" to "",
+                "createdAt" to System.currentTimeMillis()
             )
 
             db.collection("restaurants")
@@ -86,7 +96,7 @@ class AddRestaurantActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     Toast.makeText(
                         this,
-                        "تمت إضافة المطعم بنجاح",
+                        "تم إنشاء المطعم بنجاح",
                         Toast.LENGTH_SHORT
                     ).show()
 
@@ -95,7 +105,7 @@ class AddRestaurantActivity : AppCompatActivity() {
                 .addOnFailureListener {
                     Toast.makeText(
                         this,
-                        "حدث خطأ أثناء إضافة المطعم",
+                        "حدث خطأ أثناء إنشاء المطعم",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
