@@ -18,6 +18,7 @@ class AvailableOrderAdapter(
     private val db = FirebaseFirestore.getInstance()
 
 
+
     class OrderViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
@@ -25,14 +26,26 @@ class AvailableOrderAdapter(
         val restaurantName: TextView =
             itemView.findViewById(R.id.txtRestaurant)
 
+
         val address: TextView =
             itemView.findViewById(R.id.txtAddress)
+
 
         val price: TextView =
             itemView.findViewById(R.id.txtPrice)
 
+
         val acceptButton: Button =
             itemView.findViewById(R.id.btnAccept)
+
+
+        val onWayButton: Button =
+            itemView.findViewById(R.id.btnOnWay)
+
+
+        val deliveredButton: Button =
+            itemView.findViewById(R.id.btnDelivered)
+
     }
 
 
@@ -52,8 +65,8 @@ class AvailableOrderAdapter(
 
 
         return OrderViewHolder(view)
-    }
 
+    }
 
 
 
@@ -79,49 +92,91 @@ class AvailableOrderAdapter(
 
 
 
+        // قبول الطلب
+
         holder.acceptButton.setOnClickListener {
 
 
-            val driverId = "CURRENT_DRIVER_ID"
+            updateStatus(
+                order.id,
+                "accepted",
+                holder
+            )
 
-
-            db.collection("orders")
-                .document(order.id)
-                .update(
-                    mapOf(
-                        "status" to "accepted",
-                        "driverId" to driverId
-                    )
-                )
-                .addOnSuccessListener {
-
-
-                    Toast.makeText(
-                        holder.itemView.context,
-                        "تم قبول الطلب",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-
-                    orders.removeAt(position)
-
-                    notifyItemRemoved(position)
-
-                    notifyItemRangeChanged(
-                        position,
-                        orders.size
-                    )
-                }
-                .addOnFailureListener {
-
-
-                    Toast.makeText(
-                        holder.itemView.context,
-                        "حدث خطأ أثناء قبول الطلب",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
         }
+
+
+
+        // خرج للتوصيل
+
+        holder.onWayButton.setOnClickListener {
+
+
+            updateStatus(
+                order.id,
+                "on_the_way",
+                holder
+            )
+
+        }
+
+
+
+        // تم التسليم
+
+        holder.deliveredButton.setOnClickListener {
+
+
+            updateStatus(
+                order.id,
+                "delivered",
+                holder
+            )
+
+
+        }
+
+
+    }
+
+
+
+    private fun updateStatus(
+        orderId: String,
+        status: String,
+        holder: OrderViewHolder
+    ) {
+
+
+        db.collection("orders")
+            .document(orderId)
+            .update(
+                "status",
+                status
+            )
+            .addOnSuccessListener {
+
+
+                Toast.makeText(
+                    holder.itemView.context,
+                    "تم تحديث حالة الطلب",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+
+            }
+            .addOnFailureListener {
+
+
+                Toast.makeText(
+                    holder.itemView.context,
+                    "حدث خطأ",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+
+            }
+
     }
 
 
