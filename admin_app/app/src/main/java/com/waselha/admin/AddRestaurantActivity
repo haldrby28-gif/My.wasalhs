@@ -13,7 +13,6 @@ class AddRestaurantActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_add_restaurant)
 
         db = FirebaseFirestore.getInstance()
@@ -29,25 +28,58 @@ class AddRestaurantActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
 
+            val restaurantName = etRestaurantName.text.toString().trim()
+            val ownerName = etOwnerName.text.toString().trim()
+            val phone = etPhone.text.toString().trim()
+            val email = etEmail.text.toString().trim()
+            val city = etCity.text.toString().trim()
+            val address = etAddress.text.toString().trim()
+
+            if (restaurantName.isEmpty()) {
+                etRestaurantName.error = "أدخل اسم المطعم"
+                etRestaurantName.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (ownerName.isEmpty()) {
+                etOwnerName.error = "أدخل اسم المالك"
+                etOwnerName.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (phone.isEmpty()) {
+                etPhone.error = "أدخل رقم الهاتف"
+                etPhone.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (email.isEmpty()) {
+                etEmail.error = "أدخل البريد الإلكتروني"
+                etEmail.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (city.isEmpty()) {
+                etCity.error = "أدخل المدينة"
+                etCity.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (address.isEmpty()) {
+                etAddress.error = "أدخل العنوان"
+                etAddress.requestFocus()
+                return@setOnClickListener
+            }
+
             val restaurant = hashMapOf(
-                "restaurantName" to etRestaurantName.text.toString().trim(),
-                "ownerName" to etOwnerName.text.toString().trim(),
-                "phone" to etPhone.text.toString().trim(),
-                "email" to etEmail.text.toString().trim(),
-                "city" to etCity.text.toString().trim(),
-                "address" to etAddress.text.toString().trim(),
+                "restaurantName" to restaurantName,
+                "ownerName" to ownerName,
+                "phone" to phone,
+                "email" to email,
+                "city" to city,
+                "address" to address,
                 "active" to true
             )
 
             db.collection("restaurants")
-                .add(restaurant)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "تمت إضافة المطعم بنجاح", Toast.LENGTH_SHORT).show()
-                    finish()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "حدث خطأ أثناء الإضافة", Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
-}
+               
