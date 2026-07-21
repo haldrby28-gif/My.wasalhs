@@ -1,99 +1,89 @@
-package com.waselha.driver
+package com.mywasalha.driver
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class AvailableOrderAdapter(
-    private val list: MutableList<Order>
-) : RecyclerView.Adapter<AvailableOrderAdapter.ViewHolder>() {
+    private val orders: MutableList<Order>
+) : RecyclerView.Adapter<AvailableOrderAdapter.OrderViewHolder>() {
 
-    private val db = FirebaseFirestore.getInstance()
-    private val auth = FirebaseAuth.getInstance()
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val txtRestaurant: TextView =
+        val restaurant: TextView =
             itemView.findViewById(R.id.txtRestaurant)
 
-        val txtCustomer: TextView =
-            itemView.findViewById(R.id.txtCustomer)
-
-        val txtTotal: TextView =
-            itemView.findViewById(R.id.txtTotal)
-
-        val txtAddress: TextView =
+        val address: TextView =
             itemView.findViewById(R.id.txtAddress)
 
-        val btnAccept: Button =
-            itemView.findViewById(R.id.btnAcceptOrder)
+        val price: TextView =
+            itemView.findViewById(R.id.txtPrice)
+
+        val accept: Button =
+            itemView.findViewById(R.id.btnAccept)
     }
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
+    ): OrderViewHolder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_available_order, parent, false)
+            .inflate(
+                R.layout.item_available_order,
+                parent,
+                false
+            )
 
-        return ViewHolder(view)
+        return OrderViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return list.size
-    }
 
     override fun onBindViewHolder(
-        holder: ViewHolder,
+        holder: OrderViewHolder,
         position: Int
     ) {
 
-        val order = list[position]
+        val order = orders[position]
 
-        holder.txtRestaurant.text =
+        holder.restaurant.text =
             "المطعم: ${order.restaurantName}"
 
-        holder.txtCustomer.text =
-            "العميل: ${order.customerName}"
+        holder.address.text =
+            "العنوان: ${order.address}"
 
-        holder.txtTotal.text =
-            "الإجمالي: ${order.totalPrice} ج.م"
-
-        holder.txtAddress.text =
-            "العنوان: ${order.deliveryAddress}"
+        holder.price.text =
+            "الإجمالي: ${order.totalPrice} جنيه"
 
 
-        holder.btnAccept.setOnClickListener {
+        holder.accept.setOnClickListener {
 
-            val uid = auth.currentUser?.uid ?: return@setOnClickListener
+            val db = FirebaseFirestore.getInstance()
 
             db.collection("orders")
                 .document(order.id)
                 .update(
                     mapOf(
-                        "driverId" to uid,
-                        "driverName" to "مندوب",
-                        "orderStatus" to "PICKED_UP"
+                        "status" to "accepted",
+                        "driverId" to "CURRENT_DRIVER_ID"
                     )
                 )
                 .addOnSuccessListener {
 
-                    Toast.makeText(
-                        holder.itemView.context,
-                        "تم استلام الطلب",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                    list.removeAt(holder.adapterPosition)
-                    notifyItemRemoved(holder.adapterPosition)
+                    orders.removeAt(position)
+                    notifyItemRemoved(position)
                 }
         }
+    }
+
+
+    override fun getItemCount(): Int {
+        return orders.size
     }
 }
