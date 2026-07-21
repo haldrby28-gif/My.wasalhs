@@ -1,44 +1,87 @@
-package com.mywasalha.driver
+<?xml version="1.0" encoding="utf-8"?>
 
-import android.content.Intent
-import android.os.Bundle
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-class DriverDashboardActivity : AppCompatActivity() {
+    android:orientation="vertical"
 
-
-    private lateinit var availableOrdersButton: Button
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-
-        super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_driver_dashboard)
+    android:padding="20dp">
 
 
+    <TextView
 
-        availableOrdersButton =
-            findViewById(R.id.btnAvailableOrders)
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="لوحة تحكم السائق"
+
+        android:textSize="24sp"
+
+        android:textStyle="bold"
+
+        android:gravity="center"
+
+        android:padding="20dp"/>
 
 
 
-        availableOrdersButton.setOnClickListener {
+    <Button
+
+        android:id="@+id/btnAvailableOrders"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="الطلبات المتاحة"
+
+        android:layout_marginTop="20dp"/>
 
 
-            val intent =
-                Intent(
-                    this,
-                    AvailableOrdersActivity::class.java
-                )
+
+    <Button
+
+        android:id="@+id/btnMyOrders"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="طلباتي"
+
+        android:layout_marginTop="15dp"/>
 
 
-            startActivity(intent)
 
-        }
+    <Button
 
-    }
+        android:id="@+id/btnProfile"
 
-}
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="الملف الشخصي"
+
+        android:layout_marginTop="15dp"/>
+
+
+
+    <Button
+
+        android:id="@+id/btnLogout"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="تسجيل الخروج"
+
+        android:layout_marginTop="15dp"/>
+
+
+</LinearLayout>
