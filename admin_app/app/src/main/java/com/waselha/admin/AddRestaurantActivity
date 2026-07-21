@@ -82,4 +82,23 @@ class AddRestaurantActivity : AppCompatActivity() {
             )
 
             db.collection("restaurants")
-               
+                .add(restaurant)
+                .addOnSuccessListener {
+                    Toast.makeText(
+                        this,
+                        "تمت إضافة المطعم بنجاح",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(
+                        this,
+                        "حدث خطأ أثناء إضافة المطعم",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
+    }
+}
