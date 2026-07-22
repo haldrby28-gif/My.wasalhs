@@ -93,16 +93,20 @@ class ProductAdapter(
         holder.addButton.setOnClickListener {
 
 
-            Toast.makeText(
+            CartManager.addItem(
+    CartItem(
+        product.id,
+        product.name,
+        product.price,
+        1
+    )
+)
 
-                holder.itemView.context,
-
-                "تمت إضافة ${product.name} للسلة",
-
-                Toast.LENGTH_SHORT
-
-            ).show()
-
+Toast.makeText(
+    holder.itemView.context,
+    "تمت إضافة ${product.name} للسلة",
+    Toast.LENGTH_SHORT
+).show()
 
             // سنربط السلة الحقيقية لاحقاً
 
