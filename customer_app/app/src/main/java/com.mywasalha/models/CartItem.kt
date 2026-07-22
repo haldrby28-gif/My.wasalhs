@@ -1,6 +1,5 @@
 package com.mywasalha.models
 
-
 data class CartItem(
 
     var id: String = "",
@@ -9,6 +8,8 @@ data class CartItem(
 
     var price: Double = 0.0,
 
-    var quantity: Int = 1
+    var quantity: Int = 1,
+
+    var imageUrl: String = ""
 
 )
