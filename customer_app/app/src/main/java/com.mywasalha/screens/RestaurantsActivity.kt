@@ -1,57 +1,64 @@
-package com.mywasalha.screens
+package com.mywasalha.adapters
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.content.Intent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FirebaseFirestore
 import com.mywasalha.R
-import com.mywasalha.adapters.RestaurantAdapter
 import com.mywasalha.models.Restaurant
+import com.mywasalha.screens.MenuActivity
 
-class RestaurantsActivity : AppCompatActivity() {
+class RestaurantAdapter(
+    private val restaurants: MutableList<Restaurant>
+) : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: RestaurantAdapter
-    private val restaurants = mutableListOf<Restaurant>()
-    private val db = FirebaseFirestore.getInstance()
+    class RestaurantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_restaurants)
+        val txtRestaurantName: TextView =
+            itemView.findViewById(R.id.txtRestaurantName)
 
-        recyclerView = findViewById(R.id.restaurantsRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        adapter = RestaurantAdapter(restaurants)
-        recyclerView.adapter = adapter
-
-        loadRestaurants()
+        val txtRestaurantAddress: TextView =
+            itemView.findViewById(R.id.txtRestaurantAddress)
     }
 
-    private fun loadRestaurants() {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RestaurantViewHolder {
 
-        db.collection("restaurants")
-            .get()
-            .addOnSuccessListener { documents ->
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_restaurant, parent, false)
 
-                restaurants.clear()
+        return RestaurantViewHolder(view)
+    }
 
-                for (document in documents) {
+    override fun onBindViewHolder(
+        holder: RestaurantViewHolder,
+        position: Int
+    ) {
 
-                    restaurants.add(
-                        Restaurant(
-                            id = document.id,
-                            name = document.getString("restaurantName") ?: "",
-                            address = document.getString("address") ?: ""
-                        )
-                    )
-                }
+        val restaurant = restaurants[position]
 
-                adapter.notifyDataSetChanged()
-            }
-            .addOnFailureListener {
-                // سنضيف معالجة الأخطاء لاحقًا
-            }
+        holder.txtRestaurantName.text = restaurant.name
+        holder.txtRestaurantAddress.text = restaurant.address
+
+        holder.itemView.setOnClickListener {
+
+            val intent = Intent(
+                holder.itemView.context,
+                MenuActivity::class.java
+            )
+
+            intent.putExtra("restaurantId", restaurant.id)
+            intent.putExtra("restaurantName", restaurant.name)
+
+            holder.itemView.context.startActivity(intent)
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return restaurants.size
     }
 }
