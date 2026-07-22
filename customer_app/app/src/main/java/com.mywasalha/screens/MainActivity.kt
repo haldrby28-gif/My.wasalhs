@@ -9,7 +9,7 @@ import com.mywasalha.R
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnRestaurants: Button
-    private lateinit var btnMyOrders: Button
+    private lateinit var btnOrders: Button
     private lateinit var btnProfile: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,33 +17,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnRestaurants = findViewById(R.id.btnRestaurants)
-        btnMyOrders = findViewById(R.id.btnMyOrders)
+        btnOrders = findViewById(R.id.btnOrders)
         btnProfile = findViewById(R.id.btnProfile)
 
         btnRestaurants.setOnClickListener {
             startActivity(
-                Intent(
-                    this,
-                    RestaurantsActivity::class.java
-                )
+                Intent(this, RestaurantsActivity::class.java)
             )
         }
 
-        btnMyOrders.setOnClickListener {
+        btnOrders.setOnClickListener {
             startActivity(
-                Intent(
-                    this,
-                    OrderTrackingActivity::class.java
-                )
+                Intent(this, OrderTrackingActivity::class.java)
             )
         }
 
         btnProfile.setOnClickListener {
             startActivity(
-                Intent(
-                    this,
-                    LoginActivity::class.java
-                )
+                Intent(this, LoginActivity::class.java)
             )
         }
     }
