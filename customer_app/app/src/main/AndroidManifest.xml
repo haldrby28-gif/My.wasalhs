@@ -1,59 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <!-- صلاحية الإنترنت -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
         android:allowBackup="true"
-
+        android:icon="@mipmap/ic_launcher"
         android:label="وصلها في السريع"
-
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-
+        <!-- شاشة تسجيل الدخول -->
         <activity
-            android:name=".screens.OrderTrackingActivity"/>
-
-
-        <activity
-            android:name=".screens.CheckoutActivity"/>
-
-
-        <activity
-            android:name=".screens.CartActivity"/>
-
-
-        <activity
-            android:name=".screens.MenuActivity"/>
-
-
-        <activity
-            android:name=".screens.RestaurantsActivity"/>
-
-
-        <activity
-            android:name=".screens.MainActivity"
-
+            android:name=".screens.LoginActivity"
             android:exported="true">
 
-
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
 
         </activity>
 
+        <!-- الشاشة الرئيسية -->
+        <activity android:name=".screens.MainActivity" />
+
+        <!-- المطاعم -->
+        <activity android:name=".screens.RestaurantsActivity" />
+
+        <!-- قائمة الطعام -->
+        <activity android:name=".screens.MenuActivity" />
+
+        <!-- السلة -->
+        <activity android:name=".screens.CartActivity" />
+
+        <!-- تأكيد الطلب -->
+        <activity android:name=".screens.CheckoutActivity" />
+
+        <!-- متابعة الطلب -->
+        <activity android:name=".screens.OrderTrackingActivity" />
 
     </application>
-
 
 </manifest>
