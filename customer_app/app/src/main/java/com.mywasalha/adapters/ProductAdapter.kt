@@ -1,7 +1,7 @@
-
 package com.mywasalha.adapters
 
-
+import com.mywasalha.firebase.CartManager
+import com.mywasalha.models.CartItem
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
