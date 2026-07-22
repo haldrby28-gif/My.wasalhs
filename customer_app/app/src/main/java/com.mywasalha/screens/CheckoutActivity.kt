@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mywasalha.R
 import com.mywasalha.firebase.CartManager
+import com.mywasalha.models.Order
 
 class CheckoutActivity : AppCompatActivity() {
 
@@ -55,23 +56,15 @@ class CheckoutActivity : AppCompatActivity() {
             return
         }
 
-        val order = hashMapOf(
-
-            // سيتم استبدالها لاحقًا بمعرف المستخدم الحقيقي
-            "customerId" to "CURRENT_USER_ID",
-
-            // سيتم استبدالها لاحقًا بمعرف المطعم الحقيقي
-            "restaurantId" to "CURRENT_RESTAURANT_ID",
-
-            "address" to address,
-
-            "totalPrice" to CartManager.getTotal(),
-
-            "status" to "available",
-
-            "driverId" to "",
-
-            "createdAt" to System.currentTimeMillis()
+        val order = Order(
+            customerId = "CURRENT_USER_ID",
+            restaurantId = "CURRENT_RESTAURANT_ID",
+            address = address,
+            totalPrice = CartManager.getTotal(),
+            status = "available",
+            driverId = "",
+            createdAt = System.currentTimeMillis(),
+            items = CartManager.getItems()
         )
 
         db.collection("orders")
