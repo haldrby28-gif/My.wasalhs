@@ -16,13 +16,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "My.wasalhs"
 
-include(':admin_app:app')
-include(':customer_app:app')
-include(':driver_app:app')
-include(':partner_app:app')
-
-// إعادة تسمية المسارات لتتوافق مع أوامر البناء السحابي
-project(':admin_app:app').projectDir = file('admin_app/app')
-project(':customer_app:app').projectDir = file('customer_app/app')
-project(':driver_app:app').projectDir = file('driver_app/app')
-project(':partner_app:app').projectDir = file('partner_app/app')
+include(':admin_app')
+include(':customer_app')
+include(':driver_app')
+include(':partner_app')
