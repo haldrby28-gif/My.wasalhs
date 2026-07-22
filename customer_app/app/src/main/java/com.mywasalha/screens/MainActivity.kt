@@ -1,55 +1,50 @@
 package com.mywasalha.screens
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FirebaseFirestore
 import com.mywasalha.R
-import com.mywasalha.adapters.RestaurantAdapter
-import com.mywasalha.models.Restaurant
 
-class RestaurantsActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: RestaurantAdapter
-
-    private val restaurants = mutableListOf<Restaurant>()
-    private val db = FirebaseFirestore.getInstance()
+    private lateinit var btnRestaurants: Button
+    private lateinit var btnMyOrders: Button
+    private lateinit var btnProfile: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_restaurants)
+        setContentView(R.layout.activity_main)
 
-        recyclerView = findViewById(R.id.restaurantsRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        btnRestaurants = findViewById(R.id.btnRestaurants)
+        btnMyOrders = findViewById(R.id.btnMyOrders)
+        btnProfile = findViewById(R.id.btnProfile)
 
-        adapter = RestaurantAdapter(restaurants)
-        recyclerView.adapter = adapter
+        btnRestaurants.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    RestaurantsActivity::class.java
+                )
+            )
+        }
 
-        loadRestaurants()
-    }
+        btnMyOrders.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    OrderTrackingActivity::class.java
+                )
+            )
+        }
 
-    private fun loadRestaurants() {
-
-        db.collection("restaurants")
-            .get()
-            .addOnSuccessListener { documents ->
-
-                restaurants.clear()
-
-                for (document in documents) {
-
-                    val restaurant = Restaurant(
-                        id = document.id,
-                        name = document.getString("restaurantName") ?: "",
-                        address = document.getString("address") ?: ""
-                    )
-
-                    restaurants.add(restaurant)
-                }
-
-                adapter.notifyDataSetChanged()
-            }
+        btnProfile.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    LoginActivity::class.java
+                )
+            )
+        }
     }
 }
