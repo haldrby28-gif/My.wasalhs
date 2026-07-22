@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- صلاحية الإنترنت -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,7 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <!-- شاشة تسجيل الدخول -->
         <activity
             android:name=".screens.LoginActivity"
             android:exported="true">
@@ -25,23 +23,29 @@
 
         </activity>
 
-        <!-- الشاشة الرئيسية -->
-        <activity android:name=".screens.MainActivity" />
+        <activity
+            android:name=".screens.MainActivity"
+            android:exported="false" />
 
-        <!-- المطاعم -->
-        <activity android:name=".screens.RestaurantsActivity" />
+        <activity
+            android:name=".screens.RestaurantsActivity"
+            android:exported="false" />
 
-        <!-- قائمة الطعام -->
-        <activity android:name=".screens.MenuActivity" />
+        <activity
+            android:name=".screens.MenuActivity"
+            android:exported="false" />
 
-        <!-- السلة -->
-        <activity android:name=".screens.CartActivity" />
+        <activity
+            android:name=".screens.CartActivity"
+            android:exported="false" />
 
-        <!-- تأكيد الطلب -->
-        <activity android:name=".screens.CheckoutActivity" />
+        <activity
+            android:name=".screens.CheckoutActivity"
+            android:exported="false" />
 
-        <!-- متابعة الطلب -->
-        <activity android:name=".screens.OrderTrackingActivity" />
+        <activity
+            android:name=".screens.OrderTrackingActivity"
+            android:exported="false" />
 
     </application>
 
