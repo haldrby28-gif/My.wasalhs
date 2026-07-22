@@ -1,4 +1,4 @@
-name: Build Android APKs
+name: Build All Delivery APKs
 
 on:
   workflow_dispatch:
@@ -21,8 +21,10 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: Build with Gradle
+    - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
       with:
-        # يقوم هذا السكربت بإنشاء وتفعيل ملفات البناء آلياً حتى لو لم تكن موجودة
-        arguments: assembleDebug
+        gradle-version: '8.4'
+
+    - name: Build All Apps Debug APKs
+      run: gradle assembleDebug
