@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <application
+
+        android:allowBackup="true"
+
+        android:label="وصلها في السريع"
+
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+        <activity
+            android:name=".screens.OrderTrackingActivity"/>
+
+
+        <activity
+            android:name=".screens.CheckoutActivity"/>
+
+
+        <activity
+            android:name=".screens.CartActivity"/>
+
+
+        <activity
+            android:name=".screens.MenuActivity"/>
+
+
+        <activity
+            android:name=".screens.RestaurantsActivity"/>
+
+
+        <activity
+            android:name=".screens.MainActivity"
+
+            android:exported="true">
+
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+
+
+        </activity>
+
+
+    </application>
+
+
+</manifest>
