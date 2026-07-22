@@ -20,7 +20,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance()
@@ -44,25 +43,31 @@ class LoginActivity : AppCompatActivity() {
         val email = emailEdit.text.toString().trim()
         val password = passwordEdit.text.toString().trim()
 
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(
+                this,
+                "يرجى إدخال البريد الإلكتروني وكلمة المرور",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
 
-                startActivity(
-                    Intent(this, MainActivity::class.java)
-                )
-
+                startActivity(Intent(this, MainActivity::class.java))
                 finish()
+
             }
             .addOnFailureListener {
 
                 Toast.makeText(
                     this,
-                    "فشل تسجيل الدخول",
+                    "البريد الإلكتروني أو كلمة المرور غير صحيحة",
                     Toast.LENGTH_SHORT
                 ).show()
 
             }
-
     }
 
     private fun register() {
@@ -70,15 +75,26 @@ class LoginActivity : AppCompatActivity() {
         val email = emailEdit.text.toString().trim()
         val password = passwordEdit.text.toString().trim()
 
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(
+                this,
+                "يرجى إدخال البريد الإلكتروني وكلمة المرور",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
         auth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener {
 
                 Toast.makeText(
                     this,
-                    "تم إنشاء الحساب",
+                    "تم إنشاء الحساب بنجاح",
                     Toast.LENGTH_SHORT
                 ).show()
 
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
             .addOnFailureListener {
 
@@ -89,6 +105,5 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
 
             }
-
     }
 }
