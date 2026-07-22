@@ -27,4 +27,14 @@ jobs:
         gradle-version: '8.4'
 
     - name: Build All Apps Debug APKs
-      run: gradle assembleDebug
+      run: |
+        gradle :admin_app:assembleDebug
+        gradle :customer_app:assembleDebug
+        gradle :driver_app:assembleDebug
+        gradle :partner_app:assembleDebug
+
+    - name: Upload APK Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: all-apps-apks
+        path: '**/build/outputs/apk/debug/*.apk'
