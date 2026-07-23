@@ -1,4 +1,4 @@
-package com.mywasalha.screens
+package com.waselha.customer.screens
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mywasalha.R
-import com.mywasalha.adapters.RestaurantAdapter
-import com.mywasalha.models.Restaurant
+import com.waselha.customer.R
+import com.waselha.customer.adapters.RestaurantAdapter
+import com.waselha.customer.models.Restaurant
 
 class RestaurantsActivity : AppCompatActivity() {
 
