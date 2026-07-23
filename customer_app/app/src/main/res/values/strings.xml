@@ -1,4 +1,12 @@
-<!-- حقوق الملكية الفكرية -->
-<string name="copyright_text">جميع الحقوق محفوظة © 2026 وصلها في السريع</string>
-<string name="developer_name">تطوير وبرمجة: حسن عامر الدربي</string>
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">وصلها في السريع</string>
+    <string name="login_title">تسجيل الدخول</string>
+    <string name="hint_phone">رقم الهاتف</string>
+    <string name="hint_password">كلمة المرور</string>
+    <string name="btn_login">دخول</string>
+    <string name="loading">جاري التحميل...</string>
+    <string name="error_general">حدث خطأ ما، يرجى المحاولة مرة أخرى</string>
+    <string name="copyright_text">جميع الحقوق محفوظة © 2026 وصلها في السريع</string>
+    <string name="developer_name">تطوير وبرمجة: حسن عامر الدربي</string>
+</resources>
