@@ -1,5 +1,6 @@
 package com.waselha.admin
 
+import com.waselha.admin.R
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
