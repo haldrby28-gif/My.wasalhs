@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:211540847218:android:a18fd6c13d9f677fdb30eb",
+        "mobilesdk_app_id": "1:211540847218:android:98a22ee93e79b8efdb30eb",
         "android_client_info": {
-          "package_name": "com.mywasalha.custmer"
+          "package_name": "com.waselha.admin"
         }
       },
       "oauth_client": [
@@ -36,9 +36,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:211540847218:android:98a22ee93e79b8efdb30eb",
+        "mobilesdk_app_id": "1:211540847218:android:08cd52715f3897a9db30eb",
         "android_client_info": {
-          "package_name": "com.waselha.admin"
+          "package_name": "com.waselha.customer"
         }
       },
       "oauth_client": [
