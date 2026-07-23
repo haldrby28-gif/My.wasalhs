@@ -17,7 +17,7 @@
 
         <!-- اسم المطعم -->
         <TextView
-            android:id="@+id/tvRestaurantName"
+            android:id="@+id/txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="اسم المطعم"
@@ -28,7 +28,7 @@
 
         <!-- اسم المالك -->
         <TextView
-            android:id="@+id/tvOwnerName"
+            android:id="@+id/txtOwner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="اسم المالك: "
@@ -38,7 +38,7 @@
 
         <!-- رقم الهاتف -->
         <TextView
-            android:id="@+id/tvPhone"
+            android:id="@+id/txtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="رقم الهاتف: "
@@ -46,14 +46,40 @@
             android:textColor="@android:color/darker_gray"
             android:layout_marginBottom="4dp" />
 
-        <!-- المدينة والعنوان -->
+        <!-- المدينة -->
         <TextView
-            android:id="@+id/tvAddress"
+            android:id="@+id/txtCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="المدينة / العنوان"
+            android:text="المدينة"
             android:textSize="14sp"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="8dp" />
+
+        <!-- أزرار التعديل والحذف -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="تعديل" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="حذف"
+                android:backgroundTint="@android:color/holo_red_dark" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
