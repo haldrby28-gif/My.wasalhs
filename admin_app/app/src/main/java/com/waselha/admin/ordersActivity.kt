@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.waselha.admin.R // تأكد من وجود هذا الاستيراد لكي يتعرف البرنامج على R
 
 class OrdersActivity : AppCompatActivity() {
 
