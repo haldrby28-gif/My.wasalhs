@@ -1,4 +1,4 @@
-package com.mywasalha.screens
+package com.waselha.customer.screens
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,9 +7,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mywasalha.R
-import com.mywasalha.firebase.CartManager
-import com.mywasalha.models.Order
+import com.waselha.customer.R
+import com.waselha.customer.firebase.CartManager
+import com.waselha.customer.models.Order
 
 class CheckoutActivity : AppCompatActivity() {
 
