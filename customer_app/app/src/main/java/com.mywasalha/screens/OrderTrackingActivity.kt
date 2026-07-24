@@ -1,4 +1,4 @@
-package com.mywasalha.screens
+package com.waselha.customer.screens
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
-import com.mywasalha.R
+import com.waselha.customer.R
 
 class OrderTrackingActivity : AppCompatActivity() {
 
