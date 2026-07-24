@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <activity
-            android:name=".screens.LoginActivity"
+            android:name="com.mywasalha.screens.LoginActivity"
             android:exported="true">
 
             <intent-filter>
@@ -24,27 +24,27 @@
         </activity>
 
         <activity
-            android:name=".screens.MainActivity"
+            android:name="com.mywasalha.screens.MainActivity"
             android:exported="false" />
 
         <activity
-            android:name=".screens.RestaurantsActivity"
+            android:name="com.mywasalha.screens.RestaurantsActivity"
             android:exported="false" />
 
         <activity
-            android:name=".screens.MenuActivity"
+            android:name="com.mywasalha.screens.MenuActivity"
             android:exported="false" />
 
         <activity
-            android:name=".screens.CartActivity"
+            android:name="com.mywasalha.screens.CartActivity"
             android:exported="false" />
 
         <activity
-            android:name=".screens.CheckoutActivity"
+            android:name="com.mywasalha.screens.CheckoutActivity"
             android:exported="false" />
 
         <activity
-            android:name=".screens.OrderTrackingActivity"
+            android:name="com.mywasalha.screens.OrderTrackingActivity"
             android:exported="false" />
 
     </application>
