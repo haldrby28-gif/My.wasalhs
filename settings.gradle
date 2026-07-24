@@ -16,5 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "My.wasalhs"
 include ':customer_app'
 include ':admin_app'
-include ':restaurant_app'
-include ':driver_app' 
+include ':driver_app'
+include ':partner_app'
