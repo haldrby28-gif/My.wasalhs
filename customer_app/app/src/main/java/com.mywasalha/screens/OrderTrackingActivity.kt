@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
 import com.mywasalha.R
 
 class OrderTrackingActivity : AppCompatActivity() {
@@ -31,10 +33,11 @@ class OrderTrackingActivity : AppCompatActivity() {
             finish()
         }
     }
+
     private fun trackOrder(orderId: String) {
         db.collection("orders")
             .document(orderId)
-            .addSnapshotListener { snapshot: com.google.firebase.firestore.DocumentSnapshot?, error: com.google.firebase.firestore.FirebaseFirestoreException? ->
+            .addSnapshotListener { snapshot: DocumentSnapshot?, error: FirebaseFirestoreException? ->
                 if (snapshot != null && snapshot.exists()) {
                     val status = snapshot.getString("status")
 
@@ -48,5 +51,4 @@ class OrderTrackingActivity : AppCompatActivity() {
                 }
             }
     }
-
-    
+}
