@@ -26,12 +26,15 @@ jobs:
       with:
         gradle-version: '8.4'
 
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
     - name: Build All Apps Debug APKs
       run: |
-        gradle :admin_app:assembleDebug
-        gradle :customer_app:assembleDebug
-        gradle :driver_app:assembleDebug
-        gradle :partner_app:assembleDebug
+        ./gradlew :admin_app:assembleDebug
+        ./gradlew :customer_app:assembleDebug
+        ./gradlew :driver_app:assembleDebug
+        ./gradlew :partner_app:assembleDebug
 
     - name: Upload APK Artifacts
       uses: actions/upload-artifact@v4
