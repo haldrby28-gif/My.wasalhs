@@ -1,4 +1,4 @@
-package com.mywasalha.adapters
+package com.waselha.customer.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mywasalha.R
-import com.mywasalha.firebase.CartManager
-import com.mywasalha.models.CartItem
+import com.waselha.customer.R
+import com.waselha.customer.firebase.CartManager
+import com.waselha.customer.models.CartItem
 
 class CartAdapter(
     private val items: MutableList<CartItem>
