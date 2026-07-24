@@ -1,4 +1,5 @@
-package com.mywasalha.screens
+package com.waselha.customer.screens
+
 
 import android.content.Intent
 import android.os.Bundle
