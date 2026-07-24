@@ -1,5 +1,4 @@
-package com.mywasalha.models
-
+package com.waselha.customer.models
 
 data class Restaurant(
 
