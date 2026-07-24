@@ -1,6 +1,6 @@
-package com.mywasalha.firebase
+package com.waselha.customer.firebase
 
-import com.mywasalha.models.CartItem
+import com.waselha.customer.models.CartItem
 
 object CartManager {
 
