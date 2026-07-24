@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mywasalha">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,40 +13,20 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <activity
-            android:name="com.mywasalha.screens.LoginActivity"
+            android:name=".screens.LoginActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
-        <activity
-            android:name="com.mywasalha.screens.MainActivity"
-            android:exported="false" />
-
-        <activity
-            android:name="com.mywasalha.screens.RestaurantsActivity"
-            android:exported="false" />
-
-        <activity
-            android:name="com.mywasalha.screens.MenuActivity"
-            android:exported="false" />
-
-        <activity
-            android:name="com.mywasalha.screens.CartActivity"
-            android:exported="false" />
-
-        <activity
-            android:name="com.mywasalha.screens.CheckoutActivity"
-            android:exported="false" />
-
-        <activity
-            android:name="com.mywasalha.screens.OrderTrackingActivity"
-            android:exported="false" />
+        <activity android:name=".screens.MainActivity" android:exported="false" />
+        <activity android:name=".screens.RestaurantsActivity" android:exported="false" />
+        <activity android:name=".screens.MenuActivity" android:exported="false" />
+        <activity android:name=".screens.CartActivity" android:exported="false" />
+        <activity android:name=".screens.CheckoutActivity" android:exported="false" />
+        <activity android:name=".screens.OrderTrackingActivity" android:exported="false" />
 
     </application>
 
