@@ -1,4 +1,4 @@
-package com.mywasalha.screens
+package com.waselha.customer.screens
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.mywasalha.R
+import com.waselha.customer.R
 
 class LoginActivity : AppCompatActivity() {
 
