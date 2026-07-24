@@ -1,4 +1,4 @@
-package com.mywasalha.screens
+package com.mywasalha.screenspackage com.mywasalha.screens
 
 import android.os.Bundle
 import android.widget.Button
