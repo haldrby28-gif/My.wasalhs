@@ -1,4 +1,4 @@
-package com.mywasalha.screenspackage com.mywasalha.screens
+package com.mywasalha.screens
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
-import com.mywasalha.R
 
 class OrderTrackingActivity : AppCompatActivity() {
 
@@ -18,10 +17,10 @@ class OrderTrackingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_order_tracking)
+        setContentView(com.mywasalha.R.layout.activity_order_tracking)
 
-        statusText = findViewById(R.id.txtOrderStatus)
-        backButton = findViewById(R.id.btnBackHome)
+        statusText = findViewById(com.mywasalha.R.id.txtOrderStatus)
+        backButton = findViewById(com.mywasalha.R.id.btnBackHome)
 
         val orderId = intent.getStringExtra("orderId")
 
