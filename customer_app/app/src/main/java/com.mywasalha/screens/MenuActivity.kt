@@ -1,4 +1,4 @@
-package com.mywasalha.screens
+package com.waselha.customer.screens
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mywasalha.R
-import com.mywasalha.adapters.ProductAdapter
-import com.mywasalha.models.Product
+import com.waselha.customer.R
+import com.waselha.customer.adapters.ProductAdapter
+import com.waselha.customer.models.Product
 
 class MenuActivity : AppCompatActivity() {
 
@@ -78,8 +78,11 @@ class MenuActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
             .addOnFailureListener {
-
                 Toast.makeText(
                     this,
                     "فشل تحميل المنتجات",
-                   
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
+}
