@@ -26,17 +26,18 @@ jobs:
       with:
         gradle-version: '8.4'
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-      working-directory: ./My.wasalhs
-
-    - name: Build All Apps Debug APKs
+    - name: Find and Build Apps
       run: |
+        # البحث التلقائي عن ملف gradlew وتنفيذه بناءً على مكانه الصحيح في المستودع
+        PROJECT_DIR=$(find . -name "settings.gradle" -maxdepth 3 | head -n 1 | xargs dirname)
+        echo "Found project root at: $PROJECT_DIR"
+        cd "$PROJECT_DIR"
+        
+        chmod +x gradlew
         ./gradlew :admin_app:assembleDebug
         ./gradlew :customer_app:assembleDebug
         ./gradlew :driver_app:assembleDebug
         ./gradlew :partner_app:assembleDebug
-      working-directory: ./My.wasalhs
 
     - name: Upload APK Artifacts
       uses: actions/upload-artifact@v4
