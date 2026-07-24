@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.waselha.admin'
+    namespace 'com.waselha.admin' // (تأكد من تغيير الـ namespace لكل تطبيق بما يناسبه مثل customer, driver, partner)
     compileSdk 35
 
     sourceSets {
@@ -18,7 +18,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.waselha.admin"
+        applicationId "com.waselha.admin" // (يتم تعديلها حسب كل تطبيق)
         minSdk 23
         targetSdk 35
         versionCode 1
