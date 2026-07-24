@@ -7,114 +7,46 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mywasalha.R
 
-
-
 class OrderTrackingActivity : AppCompatActivity() {
 
-
     private lateinit var statusText: TextView
-
     private lateinit var backButton: Button
 
-
-    private val db =
-        FirebaseFirestore.getInstance()
-
-
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_order_tracking)
 
+        statusText = findViewById(R.id.txtOrderStatus)
+        backButton = findViewById(R.id.btnBackHome)
 
-
-        statusText =
-            findViewById(R.id.txtOrderStatus)
-
-
-        backButton =
-            findViewById(R.id.btnBackHome)
-
-
-
-        val orderId =
-            intent.getStringExtra("orderId")
-
-
+        val orderId = intent.getStringExtra("orderId")
 
         if (orderId != null) {
-
             trackOrder(orderId)
-
         }
-
-
 
         backButton.setOnClickListener {
-
             finish()
-
         }
-
     }
 
-
-
-
-
     private fun trackOrder(orderId: String) {
-
-
         db.collection("orders")
             .document(orderId)
             .addSnapshotListener { snapshot, error ->
-
-
                 if (snapshot != null && snapshot.exists()) {
+                    val status = snapshot.getString("status")
 
-
-                    val status =
-                        snapshot.getString("status")
-
-
-
-                    statusText.text =
-                        when(status) {
-
-
-                            "available" ->
-                                "جاري تجهيز الطلب"
-
-
-
-                            "accepted" ->
-                                "السائق استلم الطلب"
-
-
-
-                            "on_the_way" ->
-                                "السائق في الطريق"
-
-
-
-                            "delivered" ->
-                                "تم تسليم الطلب"
-
-
-
-                            else ->
-                                "حالة غير معروفة"
-
-
-                        }
-
+                    statusText.text = when(status) {
+                        "available" -> "جاري تجهيز الطلب"
+                        "accepted" -> "السائق استلم الطلب"
+                        "on_the_way" -> "السائق في الطريق"
+                        "delivered" -> "تم تسليم الطلب"
+                        else -> "حالة غير معروفة"
+                    }
                 }
-
             }
-
     }
-
 }
