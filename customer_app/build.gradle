@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.waselha.admin' // (تأكد من تغيير الـ namespace لكل تطبيق بما يناسبه مثل customer, driver, partner)
+    namespace 'com.waselha.customer' // (تأكد من تغيير الـ namespace لكل تطبيق بما يناسبه مثل customer, driver, partner)
     compileSdk 35
 
     sourceSets {
