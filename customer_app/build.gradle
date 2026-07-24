@@ -5,8 +5,9 @@ plugins {
 }
 
 android {
-    namespace 'com.waselha.customer'
-    compileSdk 35
+    namespace 'com.mywasalha'
+    
+    compileSdk 34
 
     sourceSets {
         main {
