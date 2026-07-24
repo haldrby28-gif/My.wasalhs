@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,66 +6,35 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-
     <TextView
-
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
-
         android:text="سلة الطلب"
-
         android:textSize="24sp"
-
         android:textStyle="bold"
-
         android:gravity="center"
-
         android:padding="15dp"/>
 
-
-
     <androidx.recyclerview.widget.RecyclerView
-
         android:id="@+id/cartRecyclerView"
-
         android:layout_width="match_parent"
-
         android:layout_height="0dp"
-
         android:layout_weight="1"/>
 
-
-
     <TextView
-
         android:id="@+id/txtTotal"
-
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
-
         android:text="الإجمالي: 0 جنيه"
-
         android:textSize="20sp"
-
         android:textStyle="bold"
-
         android:padding="10dp"/>
 
-
-
     <Button
-
         android:id="@+id/btnCheckout"
-
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
-
         android:text="إتمام الطلب"
-
         android:layout_marginTop="10dp"/>
-
 
 </LinearLayout>
