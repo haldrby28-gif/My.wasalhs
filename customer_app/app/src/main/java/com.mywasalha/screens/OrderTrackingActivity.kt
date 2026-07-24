@@ -31,11 +31,10 @@ class OrderTrackingActivity : AppCompatActivity() {
             finish()
         }
     }
-
     private fun trackOrder(orderId: String) {
         db.collection("orders")
             .document(orderId)
-            .addSnapshotListener { snapshot, error ->
+            .addSnapshotListener { snapshot: com.google.firebase.firestore.DocumentSnapshot?, error: com.google.firebase.firestore.FirebaseFirestoreException? ->
                 if (snapshot != null && snapshot.exists()) {
                     val status = snapshot.getString("status")
 
@@ -49,4 +48,5 @@ class OrderTrackingActivity : AppCompatActivity() {
                 }
             }
     }
-}
+
+    
